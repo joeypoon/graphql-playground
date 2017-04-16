@@ -4,13 +4,17 @@ var buildSchema = require('graphql').buildSchema;
 
 var schema = buildSchema(`
 	type Query {
-		hello: String
+		hello: String,
+		bye: String
 	}
 `);
 
 var root = {
 	hello: function() {
 		return 'Hello world!';
+	},
+	bye: function() {
+		return 'Goodbye world.';
 	}
 };
 

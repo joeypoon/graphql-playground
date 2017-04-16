@@ -1,9 +1,27 @@
-const { GraphQLString } = require('graphql');
+const {
+	GraphQLObjectType,
+	GraphQLString
+} = require('graphql');
+
+const helloType = new GraphQLObjectType({
+	name: 'Hello',
+	fields: {
+		hi: { type: GraphQLString },
+		bye: { type: GraphQLString }
+	}
+});
 
 const hello = {
-	type: GraphQLString,
+	type: helloType,
 	resolve: function() {
-		return 'Hello world.';
+		return {
+			hi: function() {
+				return 'Hello world.';
+			},
+			bye: function() {
+				return 'Bye world';
+			}
+		};
 	}
 };
 

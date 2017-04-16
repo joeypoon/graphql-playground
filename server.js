@@ -1,17 +1,23 @@
-const { graphql, buildSchema } = require('graphql');
+var express = require('express');
+var graphqlHTTP = require('express-graphql');
+var buildSchema = require('graphql').buildSchema;
 
-const schema = buildSchema(`
+var schema = buildSchema(`
 	type Query {
 		hello: String
 	}
 `);
 
-const root = {
-	hello: () => {
+var root = {
+	hello: function() {
 		return 'Hello world!';
 	}
 };
 
-graphql(schema, '{ hello }', root).then((res) => {
-	console.log(res);
-});
+var app = express();
+app.use('/graphql', graphqlHTTP({
+	schema: schema,
+	rootValue: root,
+	graphiql: true
+}));
+app.listen(4000);

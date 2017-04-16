@@ -1,0 +1,24 @@
+{
+  "name": "graphql-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeypoon/graphql-playground.git"
+  },
+  "author": "Joey F. Poon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joeypoon/graphql-playground/issues"
+  },
+  "homepage": "https://github.com/joeypoon/graphql-playground#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "express-graphql": "^0.6.4",
+    "graphql": "^0.9.3"
+  }
+}
